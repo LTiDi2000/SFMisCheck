@@ -27,7 +27,7 @@ class SFExploit:
 			try:
 				post_request = requests.post(f"{url}{endpoint}", data=post_body, headers = self.headers, verify=False, proxies=self.proxy)
 				response = post_request.text
-				if 'aura:clientOutOfSync' in response:
+				if 'aura:clientOutOfSync' in response or 'aura:invalidSession' in response:
 					self.aura_endpoint = endpoint
 					not_found = False
 					break
